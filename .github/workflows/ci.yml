@@ -37,6 +37,15 @@ jobs:
         id: increment-version
         uses: RichardInnocent/semantic-versioning-git@v0.0.1
 
+      - name: "⬇️ Commit Changelog"
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          set +e
+          git add CHANGELOG.md
+          git commit -m "Update changelog"
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git main
+
   release:
     runs-on: ubuntu-latest
     needs: build
