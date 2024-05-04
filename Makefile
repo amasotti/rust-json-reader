@@ -12,7 +12,7 @@ lint: ## Lint the project using cargo
 
 fmt: ## Format the project using cargo
 	@rustup component add rustfmt 2> /dev/null
-	cargo fmt
+	@cargo fmt
 
 test:
 	@cargo test
@@ -24,3 +24,7 @@ build-darwin:
 build-linux:
 	@rustup target add x86_64-unknown-linux-gnu
 	@cargo build --release --target x86_64-unknown-linux-gnu
+
+# Just for testing
+run-dev: build
+	./target/debug/json_reader test.json && ./target/debug/json_reader README.md && ./target/debug/json_reader

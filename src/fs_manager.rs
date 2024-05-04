@@ -1,7 +1,7 @@
+use serde_json::Value;
 use std::fs::File;
 use std::io;
 use std::io::{BufReader, Read};
-use serde_json::Value;
 
 /// Dummy struct for the file manager
 pub struct FileManager {
