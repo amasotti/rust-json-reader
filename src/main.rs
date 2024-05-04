@@ -7,7 +7,7 @@ mod utils;
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
 
-    match utils::handle_flags(&args)? {
+    match utils::parse_user_choice(&args)? {
         Some(file_path) => process_file(file_path),
         None => Ok(()), // Exit gracefully.
     }
