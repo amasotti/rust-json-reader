@@ -52,13 +52,13 @@ fn handle_io_errors(result: io::Result<File>) -> io::Result<File> {
         Err(error) => {
             match error.kind() {
                 io::ErrorKind::NotFound => {
-                    println!("Error: File not found. Did you spell it correctly?");
+                    eprintln!("Error: File not found. Did you spell it correctly?");
                 }
                 io::ErrorKind::PermissionDenied => {
-                    println!("Error: Permission denied. Do you have the right permissions?");
+                    eprintln!("Error: Permission denied. Do you have the right permissions?");
                 }
                 _ => {
-                    println!("Error: An unexpected error occurred: {:?}", error);
+                    eprintln!("Error: An unexpected error occurred: {:?}", error);
                 }
             }
             Err(error)
