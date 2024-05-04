@@ -7,14 +7,14 @@ name: Rust Build
 on:
   push:
       branches: ["main"]
-  pull_request:
-      branches: ["main"]
+  workflow_dispatch:
+
 
 permissions:
   contents: write
 
 jobs:
-  build-and-release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,12 +35,18 @@ jobs:
         id: increment-version
         uses: RichardInnocent/semantic-versioning-git@v0.0.1
 
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
       - name: "🎨 Generate a changelog"
         id: generate-changelog
         uses: orhun/git-cliff-action@v3
         with:
           config: cliff.toml
-          args: --verbose --latest
+          args: --verbose --current
         env:
           GITHUB_REPO: ${{ github.repository }}
 
