@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file (created with git cliff).
 
+## [0.1.0] - 2024-05-04
+
+### 🚀 Features
+
+- Add git-cliff for changelog
+- Add ci pipeline
+- Implement fs manager
+- Finalize MVP
+
 ## [0.0.1] - 2024-05-04
 
 ### 🚀 Features
