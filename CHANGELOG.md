@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file (created with git cliff).
 
+## [0.7.2] - 2024-05-04
+
+### 🐛 Bug Fixes
+
+- Fix CI pipeline
+
+## [0.7.1] - 2024-05-04
+
+### 🐛 Bug Fixes
+
+- Fix readme.md link
+
+## [0.7.0] - 2024-05-04
+
+### 🚜 Refactor
+
+- Start clean up & polishing
+- Make utility fns testable
+
+### 📚 Documentation
+
+- Changelog & expand README.md
+- Assignment
+
+### 🧪 Testing
+
+- Add tests for utils
+
+### ⚙️ Miscellaneous Tasks
+
+- Use eprintln macro instead of simple println
+
 ## [0.1.0] - 2024-05-04
 
 ### 🚀 Features
