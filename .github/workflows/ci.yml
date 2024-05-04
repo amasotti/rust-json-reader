@@ -48,7 +48,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         env:
           TAG: ${{ steps.increment-version.outputs.new-version }}
-          CHANGELOG: ${{ steps.generate-changelog.outputs.content }}
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create $TAG --target=main --title="Release $TAG" --notes=$CHANGELOG
+          gh release create $TAG --target=main --title="Release $TAG" --notes-file=CHANGELOG.md
