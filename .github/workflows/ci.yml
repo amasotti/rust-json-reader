@@ -1,0 +1,54 @@
+# This is an example GitHub Actions workflow that will allow you to build your project with every push or pull request.
+# For more information, see:
+# https://docs.github.com/actions/reference/workflow-syntax-for-github-actions
+
+name: Rust Build
+
+on:
+  push:
+      branches: ["main"]
+  pull_request:
+      branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "🦀 Set up Rust"
+        uses: actions-rust-lang/setup-rust-toolchain@v1.8.0
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+
+      - name: "🧹 Lint"
+        run: make lint
+
+      - name: "🧪 Test"
+        run: make test
+
+      - name: "⬆️ Increment version"
+        id: increment-version
+        uses: RichardInnocent/semantic-versioning-git@v0.0.1
+
+      - name: "🎨 Generate a changelog"
+        id: generate-changelog
+        uses: orhun/git-cliff-action@v3
+        with:
+          config: cliff.toml
+          args: --verbose
+        env:
+          OUTPUT: CHANGELOG.md
+          GITHUB_REPO: ${{ github.repository }}
+
+      - name: "Create Github Release"
+        if: github.ref == 'refs/heads/main'
+        env:
+          TAG: ${{ steps.increment-version.outputs.new-version }}
+          CHANGELOG: ${{ steps.generate-changelog.outputs.changelog }}
+        run: |
+          gh release create $TAG --target=main --title="Release $TAG" --notes=$CHANGELOG
