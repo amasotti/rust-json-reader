@@ -22,11 +22,14 @@ impl FileManager {
         }
     }
 
+    /// Reads the file at the stored path and returns the contents as a String
     pub fn read_file(&self) -> io::Result<String> {
-        let file = File::open(&self.path)?;
+        let file = File::open(&self.path);
 
-        // Shadowing to handle the error
-        let file = handle_io_errors(&file)?;
+        let file = match handle_io_errors(file) {
+            Ok(f) => f,
+            Err(e) => return Err(e),
+        };
 
         let mut reader = BufReader::new(file);
         let mut contents = String::new();
@@ -34,7 +37,7 @@ impl FileManager {
         Ok(contents)
     }
 
-    pub fn pretty_print_json(contents: &str) -> Result<(), serde_json::Error> {
+    pub fn pretty_print_json(&self, contents: &str) -> Result<(), serde_json::Error> {
         let v: Value = serde_json::from_str(contents)?;
         println!("{}", serde_json::to_string_pretty(&v)?);
         Ok(())
@@ -43,22 +46,22 @@ impl FileManager {
 
 /// Handle IO errors
 /// Actually unnecessary, but it's here to let me learn how to handle different types of errors
-fn handle_io_errors(f: &File) -> Result<File, io::Error> {
-    let f = match f {
+fn handle_io_errors(result: io::Result<File>) -> io::Result<File> {
+    match result {
         Ok(file) => Ok(file),
-        Err(error) => match error.kind() {
-            std::io::ErrorKind::NotFound => {
-                println!("FAILURE: \nFile not found, did you spell it correctly?\n");
-                Err(error)
+        Err(error) => {
+            match error.kind() {
+                io::ErrorKind::NotFound => {
+                    println!("Error: File not found. Did you spell it correctly?");
+                }
+                io::ErrorKind::PermissionDenied => {
+                    println!("Error: Permission denied. Do you have the right permissions?");
+                }
+                _ => {
+                    println!("Error: An unexpected error occurred: {:?}", error);
+                }
             }
-            std::io::ErrorKind::PermissionDenied => {
-                println!("FAILURE: \nPermission denied, do you have the right permissions?\n");
-                Err(error)
-            }
-            _ => {
-                println!("Some other error occurred: {:?}", error);
-                Err(error)
-            }
-        },
-    };
+            Err(error)
+        }
+    }
 }
