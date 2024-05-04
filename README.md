@@ -2,7 +2,9 @@
 
 This is a small example of how to read a file in Rust.
 The project is my solution to the first assignment of the course [Rust Programming Specialization](Part of the Coursera specialization [Rust Programming Specialization](https://www.coursera.org/specializations/rust-programming) on Coursera
-by Alfredo Deza.
+by Alfredo Deza at Duke University.
+
+See [ASSIGNMENT.md](ASSIGNMENT.md) for the original assignment.
 
 ### Learning objectives
 
