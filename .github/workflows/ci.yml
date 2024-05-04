@@ -42,14 +42,13 @@ jobs:
           config: cliff.toml
           args: --verbose
         env:
-          OUTPUT: CHANGELOG.md
           GITHUB_REPO: ${{ github.repository }}
 
       - name: "Create Github Release"
         if: github.ref == 'refs/heads/main'
         env:
           TAG: ${{ steps.increment-version.outputs.new-version }}
-          CHANGELOG: ${{ steps.generate-changelog.outputs.changelog }}
+          CHANGELOG: ${{ steps.generate-changelog.outputs.content }}
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create $TAG --target=main --title="Release $TAG" --notes=$CHANGELOG
