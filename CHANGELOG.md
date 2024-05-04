@@ -2,9 +2,9 @@
 
 All notable changes to this project will be documented in this file (created with git cliff).
 
-## [unreleased]
+## [0.7.6] - 2024-05-04
 
-[Compare with last version](https://github.com/amasotti/rust-json-reader/compare/d50b9c27685258295fc7a5dd41dfdcdf0a979dab..)
+[Compare with last version](https://github.com/amasotti/rust-json-reader/compare/d50b9c27685258295fc7a5dd41dfdcdf0a979dab..a318e0a02fb6873a680712070ee5c503487a1f09)
 ### 🐛 Bug Fixes
 
 
@@ -12,10 +12,25 @@ All notable changes to this project will be documented in this file (created wit
 
 - *(ci)* Use notes-file release arg ([6e209c8](https://github.com/amasotti/rust-json-reader/commit/6e209c86c3bdb75f082772af49b28c11d934de28))
 
+- *(ci)* Pass vars between jobs ([ac53098](https://github.com/amasotti/rust-json-reader/commit/ac53098a4064749f3b6a39c98cf7ffd15b99439e))
+
+- *(ci)* Commit changelog ([3042d12](https://github.com/amasotti/rust-json-reader/commit/3042d1214e9e43ad577a7f097f84b01caa921270))
+
+### 🚜 Refactor
+
+
+- Only use the latest tag for the changelog ([d180ef0](https://github.com/amasotti/rust-json-reader/commit/d180ef0b0d4250fe16556d266e84d2338afa597e))
+
+- Split ci pipeline in two jobs ([da7555d](https://github.com/amasotti/rust-json-reader/commit/da7555df512f02ac294d29949570111a00b7dd55))
+
+- *(ci)* Commit changelog ([a318e0a](https://github.com/amasotti/rust-json-reader/commit/a318e0a02fb6873a680712070ee5c503487a1f09))
+
 ### 📚 Documentation
 
 
 - Generate new changelog ([ed2b060](https://github.com/amasotti/rust-json-reader/commit/ed2b0603976a338a4b82614762ba3969458a8fb6))
+
+- *(changelog)* Update changelog ([2db1e5d](https://github.com/amasotti/rust-json-reader/commit/2db1e5d7e695f05815e1da7381f597165897cb6f))
 
 ### ⚙️ Miscellaneous Tasks
 
