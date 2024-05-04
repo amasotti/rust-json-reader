@@ -2,16 +2,13 @@ use crate::interactive;
 use std::{io, process};
 
 // Print help message, if the user asks for it
-pub fn handle_flags(args: &[String]) -> String {
+pub fn handle_flags(args: &[String]) -> io::Result<Option<String>> {
     if args.contains(&"--help".to_string()) || args.contains(&"-h".to_string()) {
         print_help(&args[0]);
-        std::process::exit(0);
+        return Ok(None); // Signal to exit with success.
     }
 
-    get_file_path(args).unwrap_or_else(|e| {
-        eprintln!("Error getting file path: {}", e);
-        process::exit(1);
-    })
+    get_file_path(args).map(Some)
 }
 
 /// Documentation string

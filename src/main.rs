@@ -7,10 +7,10 @@ mod utils;
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
 
-    // if args contains --help or -h, print help
-    let fp = utils::handle_flags(&args);
-
-    process_file(fp)
+    match utils::handle_flags(&args)? {
+        Some(file_path) => process_file(file_path),
+        None => Ok(()), // Exit gracefully.
+    }
 }
 
 fn process_file(file_path: String) -> io::Result<()> {
