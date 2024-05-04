@@ -50,5 +50,6 @@ jobs:
         env:
           TAG: ${{ steps.increment-version.outputs.new-version }}
           CHANGELOG: ${{ steps.generate-changelog.outputs.changelog }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh release create $TAG --target=main --title="Release $TAG" --notes=$CHANGELOG
