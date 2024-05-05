@@ -21,6 +21,10 @@ and have a json pretty print of the file content.
 - `serde_json` for pretty printing the json content of the file ([v.1.0.116](https://docs.rs/serde_json/1.0.116/serde_json/))
 - `dialoguer` for user interaction ([v.0.11.0](https://docs.rs/dialoguer/0.11.0/dialoguer/))
 
+Later I substituted `makefile` with `just`, a Rust native replacement and much more powerful tool.
+
+- [Just Docs](https://just.systems/man/en/) - ([github repo](https://github.com/casey/just))
+
 ## Structure
 
 ~~~sh
