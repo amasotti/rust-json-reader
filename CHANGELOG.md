@@ -2,9 +2,37 @@
 
 All notable changes to this project will be documented in this file (created with git cliff).
 
-## [0.9.2] - 2024-05-05
+## [0.10.0] - 2024-05-05
 
-[Compare with last version](https://github.com/amasotti/rust-json-reader/compare/70c65e4ad38925697d2c3e3e4de5a5815926d1f7..19ca0a96dc98bd60483fb6cab4783e51ac1405a2)
+[Compare with last version](https://github.com/amasotti/rust-json-reader/compare/13fc1e0489ee24db86f08692092814ee3f276b1f..eb171de6c9be8b5202087e80c23338baa93e2613)
+### 🚀 Features
+
+
+- *(ci)* Add a changelog config for ci pipeline ([0366c3b](https://github.com/amasotti/rust-json-reader/commit/0366c3be3aed705112765b3a04da41ae6218b446))
+
+### 🐛 Bug Fixes
+
+
+- *(ci)* Rm flag -l ([a4d525b](https://github.com/amasotti/rust-json-reader/commit/a4d525b718e584fa8f0b6054102e973a4a6d28a6))
+
+### 📚 Documentation
+
+
+- Add usage ([eb171de](https://github.com/amasotti/rust-json-reader/commit/eb171de6c9be8b5202087e80c23338baa93e2613))
+
+### ⚡ Performance
+
+
+- *(ci)* Imporve ci pipeline ([1c54cab](https://github.com/amasotti/rust-json-reader/commit/1c54cabfe24d3639926998d9cac2ef5422014ddf))
+
+### ⚙️ Miscellaneous Tasks
+
+
+- *(ci)* Minor adjustment to cliff-configuration ([7cfc5ba](https://github.com/amasotti/rust-json-reader/commit/7cfc5ba1ec2103ef00b455f5a357cfeffa0f36ad))
+
+## [0.9.3] - 2024-05-05
+
+[Compare with last version](https://github.com/amasotti/rust-json-reader/compare/70c65e4ad38925697d2c3e3e4de5a5815926d1f7..13fc1e0489ee24db86f08692092814ee3f276b1f)
 ### 🐛 Bug Fixes
 
 
