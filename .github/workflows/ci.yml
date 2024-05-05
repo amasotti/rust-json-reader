@@ -76,13 +76,21 @@ jobs:
         - changelog
     steps:
       - uses: actions/checkout@v4
+
+      - name: "🎨 Generate a changelog"
+        id: cliff-changelog
+        uses: orhun/git-cliff-action@v3
         with:
-          fetch-depth: 0
+          config: cliff.toml
+          args: --verbose -l
+        env:
+          GITHUB_REPO: ${{ github.repository }}
 
       - name: "Create Github Release"
         if: github.ref == 'refs/heads/main'
         env:
           TAG: ${{ needs.build.outputs.new-version }}
           GH_TOKEN: ${{ github.token }}
+          NOTES: ${{ steps.cliff-changelog.outputs.changelog }}
         run: |
-          gh release create $TAG --target=main --title="Release $TAG" --notes-file=CHANGELOG.md
+          gh release create $TAG --target=main --title="Release $TAG" -F $NOTES
