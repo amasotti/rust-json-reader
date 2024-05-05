@@ -20,8 +20,6 @@ jobs:
       new-version: ${{ steps.increment-version.outputs.new-version }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: "🦀 Set up Rust"
         uses: actions-rust-lang/setup-rust-toolchain@v1.8.0
@@ -81,8 +79,8 @@ jobs:
         id: cliff-changelog
         uses: orhun/git-cliff-action@v3
         with:
-          config: cliff.toml
-          args: --verbose
+          config: cliff-ci.toml
+          args: --verbose -u
         env:
           GITHUB_REPO: ${{ github.repository }}
 
