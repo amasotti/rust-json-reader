@@ -34,7 +34,7 @@ Later I substituted `makefile` with `just`, a Rust native replacement and much m
 ├── CHANGELOG.md 
 ├── cliff.toml # Configuration file for the Changelog
 ├── LICENSE # MIT License
-├── Makefile # Makefile for building and running the project
+├── Justfile # Rust native replacement for makefile
 ├── README.md 
 ├── src # Source code
 │   ├── fs_manager.rs # File system manager (open and read files)

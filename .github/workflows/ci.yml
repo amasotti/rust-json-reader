@@ -27,11 +27,14 @@ jobs:
           toolchain: stable
           components: rustfmt, clippy
 
+      - name: "📦 Install JUST" # I could use the setup-rust to install both rust and just
+        uses: taiki-e/install-action@just
+
       - name: "🧹 Lint"
-        run: make lint
+        run: just lint
 
       - name: "🧪 Test"
-        run: make test
+        run: just test
 
       - name: "⬆️ Increment version"
         id: increment-version
