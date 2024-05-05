@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file (created wit
 
 ## [0.9.2] - 2024-05-05
 
+[Compare with last version](https://github.com/amasotti/rust-json-reader/compare/70c65e4ad38925697d2c3e3e4de5a5815926d1f7..19ca0a96dc98bd60483fb6cab4783e51ac1405a2)
+### 🐛 Bug Fixes
+
+
+- *(ci)* Distinguish between full changelog and latest changes ([0a726bc](https://github.com/amasotti/rust-json-reader/commit/0a726bce2916493673720a6142c9d9d739b4c5c4))
+
+## [0.9.2] - 2024-05-05
+
 [Compare with last version](https://github.com/amasotti/rust-json-reader/compare/24332bcc91b4f33021f6449c1c3c55c0345ec633..70c65e4ad38925697d2c3e3e4de5a5815926d1f7)
 ### 🐛 Bug Fixes
 
