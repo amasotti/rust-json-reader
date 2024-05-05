@@ -1,5 +1,8 @@
 # Rust file reader
 
+[![Rust Build](https://github.com/amasotti/rust-json-reader/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/amasotti/rust-json-reader/actions/workflows/ci.yml)
+
+
 This is a small example of how to read a file in Rust.
 The project is my solution to the first assignment of the course [Rust Programming Specialization](https://www.coursera.org/specializations/rust-programming) on Coursera
 by Alfredo Deza at Duke University.
