@@ -48,3 +48,32 @@ Later I substituted `makefile` with `just`, a Rust native replacement and much m
 └── test.json # Test file for json pretty print
 
 ~~~
+
+## How to run
+
+### Prerequisites
+
+- Rust installed
+- Cargo installed
+- Just installed (optional, you can also use the cargo commands)
+
+### Steps
+
+~~~sh
+# Clone the repository
+git clone
+
+# Change directory
+cd rust-json-reader
+
+# Build the project
+cargo build --release
+
+# Run the project
+./target/release/json_reader [<path_to_file>] # If no path is provided, it will read the current directory
+~~~
+
+- Show help message
+~~~sh
+./target/release/json_reader [--help | -h]
+~~~
